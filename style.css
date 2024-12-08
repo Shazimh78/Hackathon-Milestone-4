@@ -1,0 +1,184 @@
+/* Universal styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+/* Form Styling */
+form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    animation: slideInLeft 1s ease-out;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    color: #ddd;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #222;
+    color: #fff;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+    transition: all 0.2s ease-in;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+button[type="submit"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+button[type="submit"]:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+button[type="submit"] span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Resume Display Section Styling */
+#resume-display {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    animation: slideInRight 1s ease-out;
+    margin-top: 20px;
+}
+
+#resume-display header, #resume-display section {
+    margin-bottom: 20px;
+}
+
+#resume-display h2 {
+    color: #4CAF50;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Editable Sections */
+#display-skill-list li {
+    padding: 5px 0;
+    transition: color 0.2s ease-in;
+}
+
+#display-skill-list li:hover {
+    color: #4CAF50;
+}
+
+[contenteditable="true"]:focus {
+    outline: 2px dashed #4CAF50;
+    background-color: #333;
+    transition: background-color 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 600px) {
+    form, #resume-display {
+        width: 90%;
+    }
+}
